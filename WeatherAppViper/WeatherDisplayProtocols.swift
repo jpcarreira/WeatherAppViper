@@ -10,4 +10,7 @@ protocol WeatherDisplayAPIProtocol: class { }
 
 protocol WeatherDisplayRouterProtocol: class { }
 
-protocol WeatherDisplayViewToPresenterProtocol { }
+protocol WeatherDisplayViewToPresenterProtocol {
+    
+    var navigationBarTitle: String { get }
+}

@@ -20,6 +20,8 @@
 		629E94D720B8ACCE00F80518 /* WeatherDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E94D620B8ACCE00F80518 /* WeatherDisplayViewController.swift */; };
 		629E94D920B8ACFD00F80518 /* WeatherDisplayProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E94D820B8ACFD00F80518 /* WeatherDisplayProtocols.swift */; };
 		629E94DB20B8B10800F80518 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E94DA20B8B10800F80518 /* API.swift */; };
+		629E94DF20B9927200F80518 /* UpdateDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E94DE20B9927200F80518 /* UpdateDisplayView.swift */; };
+		629E94E120B993E700F80518 /* WeatherDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E94E020B993E700F80518 /* WeatherDisplayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		629E94D620B8ACCE00F80518 /* WeatherDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDisplayViewController.swift; sourceTree = "<group>"; };
 		629E94D820B8ACFD00F80518 /* WeatherDisplayProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDisplayProtocols.swift; sourceTree = "<group>"; };
 		629E94DA20B8B10800F80518 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		629E94DE20B9927200F80518 /* UpdateDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateDisplayView.swift; sourceTree = "<group>"; };
+		629E94E020B993E700F80518 /* WeatherDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDisplayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,8 @@
 				629E94D820B8ACFD00F80518 /* WeatherDisplayProtocols.swift */,
 				629E94D420B8AC4700F80518 /* WeatherDisplayPresenter.swift */,
 				629E94D620B8ACCE00F80518 /* WeatherDisplayViewController.swift */,
+				629E94DE20B9927200F80518 /* UpdateDisplayView.swift */,
+				629E94E020B993E700F80518 /* WeatherDisplayView.swift */,
 			);
 			name = "Weather Display";
 			sourceTree = "<group>";
@@ -254,6 +260,8 @@
 				622A637220B89974001BAFE5 /* AppDelegate.swift in Sources */,
 				629E94D720B8ACCE00F80518 /* WeatherDisplayViewController.swift in Sources */,
 				629E94DB20B8B10800F80518 /* API.swift in Sources */,
+				629E94DF20B9927200F80518 /* UpdateDisplayView.swift in Sources */,
+				629E94E120B993E700F80518 /* WeatherDisplayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

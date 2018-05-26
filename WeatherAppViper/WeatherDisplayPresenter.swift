@@ -15,4 +15,9 @@ final class WeatherDisplayPresenter {
 }
 
 
-extension WeatherDisplayPresenter: WeatherDisplayViewToPresenterProtocol { }
+extension WeatherDisplayPresenter: WeatherDisplayViewToPresenterProtocol {
+    
+    var navigationBarTitle: String {
+        return "Weather App"
+    }
+}
