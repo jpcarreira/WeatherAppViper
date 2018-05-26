@@ -83,10 +83,10 @@
 		622A637020B89974001BAFE5 /* WeatherAppViper */ = {
 			isa = PBXGroup;
 			children = (
-				629E94D020B8AB3C00F80518 /* Services */,
-				629E94CD20B8AAED00F80518 /* Resources */,
 				622A63A520B8A95B001BAFE5 /* App */,
 				622A63A620B8A96E001BAFE5 /* Stories */,
+				629E94D020B8AB3C00F80518 /* Services */,
+				629E94CD20B8AAED00F80518 /* Resources */,
 			);
 			path = WeatherAppViper;
 			sourceTree = "<group>";
