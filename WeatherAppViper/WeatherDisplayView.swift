@@ -50,6 +50,8 @@ final class WeatherDisplayView: UIView {
         weatherDescriptionLabel.textAlignment = .center
         addSubview(weatherDescriptionLabel)
         
+        addSubview(iconImageView)
+        
         temperatureLabel.numberOfLines = 0
         temperatureLabel.textAlignment = .center
         addSubview(temperatureLabel)
@@ -57,8 +59,6 @@ final class WeatherDisplayView: UIView {
         windLabel.numberOfLines = 0
         windLabel.textAlignment = .center
         addSubview(windLabel)
-        
-        addSubview(iconImageView)
         
         addSubview(noWeatherLabel)
         
@@ -92,14 +92,20 @@ final class WeatherDisplayView: UIView {
             make.leading.trailing.equalToSuperview()
         }
         
+        iconImageView.snp.makeConstraints { make in
+            make.top.equalTo(weatherDescriptionLabel.snp.bottom).offset(16)
+            make.width.height.equalTo(120)
+            make.centerX.equalToSuperview()
+        }
+        
         temperatureLabel.snp.makeConstraints { make in
-            make.top.equalTo(weatherDescriptionLabel.snp.bottom)
-            make.leading.equalToSuperview().offset(16)
+            make.centerY.equalTo(iconImageView.snp.centerY)
+            make.trailing.equalTo(iconImageView.snp.leading)
         }
         
         windLabel.snp.makeConstraints { make in
-            make.top.equalTo(weatherDescriptionLabel.snp.bottom)
-            make.trailing.equalToSuperview().inset(16)
+            make.centerY.equalTo(iconImageView.snp.centerY)
+            make.leading.equalTo(iconImageView.snp.trailing)
         }
         
         noWeatherLabel.snp.makeConstraints { make in

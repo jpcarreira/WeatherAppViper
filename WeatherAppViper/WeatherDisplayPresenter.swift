@@ -27,7 +27,7 @@ extension WeatherDisplayPresenter: WeatherDisplayViewToPresenterProtocol {
         // TODO: call the service to get a real weather condition
         let weatherCondition = WeatherCondition(
             location: "Lisbon", condition: "superb!", wind: "SSW 17km/h", temperature: "28 ºC",
-            icon: nil)
+            icon: "113")
         view?.update(with: weatherCondition)
     }
 }
