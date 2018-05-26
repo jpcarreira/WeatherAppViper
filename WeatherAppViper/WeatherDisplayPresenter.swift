@@ -11,7 +11,7 @@ final class WeatherDisplayPresenter {
     
     weak var router: WeatherDisplayRouterProtocol?
     
-    weak var api: WeatherDisplayAPIProtocol?
+    var api: WeatherDisplayAPIProtocol?
     
     weak var view: WeatherDisplayPresenterToViewProtocol?
 }
@@ -24,10 +24,8 @@ extension WeatherDisplayPresenter: WeatherDisplayViewToPresenterProtocol {
     }
     
     func getWeatherCondition() {
-        // TODO: call the service to get a real weather condition
-        let weatherCondition = WeatherCondition(
-            location: "Lisbon", condition: "superb!", wind: "SSW 17km/h", temperature: "28 ºC",
-            icon: "113")
-        view?.update(with: weatherCondition)
+        api?.getCurrentWeather(for: "New%20York", completionHandler: { (success, weatherCondition) in
+            self.view?.update(with: success ? weatherCondition : nil)
+        })
     }
 }

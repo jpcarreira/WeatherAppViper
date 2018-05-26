@@ -70,7 +70,9 @@ final class WeatherDisplayViewController: UIViewController {
 
 extension WeatherDisplayViewController: WeatherDisplayPresenterToViewProtocol {
     
-    func update(with weatherCondition: WeatherCondition?) {
-        weatherDisplayView.weatherCondition = weatherCondition
+    func update(with weatherCondition: WeatherConditionEntityProtocol?) {
+        DispatchQueue.main.async {
+            self.weatherDisplayView.weatherCondition = weatherCondition
+        }
     }
 }

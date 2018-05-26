@@ -6,9 +6,25 @@
 //  Copyright © 2018 João Carreira. All rights reserved.
 //
 
-protocol WeatherDisplayAPIProtocol: class { }
+protocol WeatherDisplayAPIProtocol: class {
+    func getCurrentWeather(
+        for location: String,
+        completionHandler: @escaping (Bool, WeatherConditionEntityProtocol?) -> Void)
+}
+
 
 protocol WeatherDisplayRouterProtocol: class { }
+
+
+protocol WeatherConditionEntityProtocol {
+    var location: String { get }
+    var isDay: Bool { get }
+    var condition: String { get }
+    var wind: String { get }
+    var temperature: String { get }
+    var icon: String? { get }
+}
+
 
 protocol WeatherDisplayViewToPresenterProtocol {
     
@@ -17,7 +33,8 @@ protocol WeatherDisplayViewToPresenterProtocol {
     func getWeatherCondition()
 }
 
+
 protocol WeatherDisplayPresenterToViewProtocol: class {
     
-    func update(with weatherCondition: WeatherCondition?)
+    func update(with weatherCondition: WeatherConditionEntityProtocol?)
 }

@@ -24,7 +24,7 @@ final class WeatherDisplayView: UIView {
     
     private let noWeatherLabel = UILabel()
     
-    var weatherCondition: WeatherCondition? {
+    var weatherCondition: WeatherConditionEntityProtocol? {
         didSet {
             updateView()
         }
@@ -68,6 +68,7 @@ final class WeatherDisplayView: UIView {
     private func updateView() {
         if let weatherCondition = weatherCondition {
             locationLabel.text = weatherCondition.location
+            backgroundColor = weatherCondition.isDay ? .cyan : .gray
             weatherDescriptionLabel.text = weatherCondition.condition
             temperatureLabel.text = weatherCondition.temperature
             windLabel.text = weatherCondition.wind
