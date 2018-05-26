@@ -74,6 +74,10 @@ extension Weather: WeatherConditionEntityProtocol {
         return "\(locationName), \(locationCountry)"
     }
     
+    var lastUpdate: String {
+        return currentLastUpdated
+    }
+    
     var isDay: Bool {
         return currentIsDay == 1
     }

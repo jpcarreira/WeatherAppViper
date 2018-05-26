@@ -11,11 +11,11 @@ import UIKit
 
 final class WeatherDisplayViewController: UIViewController {
     
-    let presenter: WeatherDisplayViewToPresenterProtocol
+    private let presenter: WeatherDisplayViewToPresenterProtocol
     
-    let updateDisplayView = UpdateDisplayView()
+    private let updateDisplayView = UpdateDisplayView()
     
-    let weatherDisplayView = WeatherDisplayView()
+    private let weatherDisplayView = WeatherDisplayView()
     
     init(presenter: WeatherDisplayViewToPresenterProtocol) {
         self.presenter = presenter
@@ -72,6 +72,7 @@ extension WeatherDisplayViewController: WeatherDisplayPresenterToViewProtocol {
     
     func update(with weatherCondition: WeatherConditionEntityProtocol?) {
         DispatchQueue.main.async {
+            self.updateDisplayView.lastUpdateDate = weatherCondition?.lastUpdate
             self.weatherDisplayView.weatherCondition = weatherCondition
         }
     }

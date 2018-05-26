@@ -18,6 +18,7 @@ protocol WeatherDisplayRouterProtocol: class { }
 
 protocol WeatherConditionEntityProtocol {
     var location: String { get }
+    var lastUpdate: String { get }
     var isDay: Bool { get }
     var condition: String { get }
     var wind: String { get }

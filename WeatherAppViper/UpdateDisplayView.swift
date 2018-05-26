@@ -16,10 +16,11 @@ final class UpdateDisplayView: UIView {
     
     private let infoLabel = UILabel()
     
-    lazy private var lastUpdateDate: String = {
-        // TODO: hardcoded for now
-        return "2018-01-01 23:59"
-    }()
+    var lastUpdateDate: String? {
+        didSet {
+            setupInfoLabel()
+        }
+    }
     
     init() {
         super.init(frame: .zero)
@@ -33,7 +34,7 @@ final class UpdateDisplayView: UIView {
     }
     
     private func setupView() {
-        infoLabel.text = "Last update: \(lastUpdateDate)"
+        setupInfoLabel()
         infoLabel.numberOfLines = 0
         infoLabel.textAlignment = .center
         addSubview(infoLabel)
@@ -42,6 +43,14 @@ final class UpdateDisplayView: UIView {
     private func setupContraints() {
         infoLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+    }
+    
+    private func setupInfoLabel() {
+        if let date = lastUpdateDate {
+            infoLabel.text = "Last update: \(date)"
+        } else {
+            infoLabel.text = "No data to display"
         }
     }
 }
