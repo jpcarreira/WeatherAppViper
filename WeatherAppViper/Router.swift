@@ -20,11 +20,13 @@ final class Router {
     init(api: ApiProtocol) {
         self.api = api
         presenter = WeatherDisplayPresenter()
+        let viewController = WeatherDisplayViewController(presenter: presenter)
         rootViewController =
             UINavigationController(
-                rootViewController: WeatherDisplayViewController(presenter: presenter))
+                rootViewController: viewController)
         presenter.router = self
         presenter.api = api
+        presenter.view = viewController
     }
 }
 

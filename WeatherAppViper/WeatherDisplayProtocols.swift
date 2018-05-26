@@ -13,4 +13,11 @@ protocol WeatherDisplayRouterProtocol: class { }
 protocol WeatherDisplayViewToPresenterProtocol {
     
     var navigationBarTitle: String { get }
+    
+    func getWeatherCondition()
+}
+
+protocol WeatherDisplayPresenterToViewProtocol: class {
+    
+    func update(with weatherCondition: WeatherCondition)
 }

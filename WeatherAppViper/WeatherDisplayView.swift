@@ -22,6 +22,14 @@ final class WeatherDisplayView: UIView {
     
     private let iconImageView = UIImageView()
     
+    private let noWeatherLabel = UILabel()
+    
+    var weatherCondition: WeatherCondition? {
+        didSet {
+            updateView()
+        }
+    }
+    
     init() {
         super.init(frame: .zero)
         
@@ -34,10 +42,68 @@ final class WeatherDisplayView: UIView {
     }
     
     private func setupView() {
+        locationLabel.numberOfLines = 0
+        locationLabel.textAlignment = .center
         addSubview(locationLabel)
+        
+        weatherDescriptionLabel.numberOfLines = 0
+        weatherDescriptionLabel.textAlignment = .center
+        addSubview(weatherDescriptionLabel)
+        
+        temperatureLabel.numberOfLines = 0
+        temperatureLabel.textAlignment = .center
+        addSubview(temperatureLabel)
+        
+        windLabel.numberOfLines = 0
+        windLabel.textAlignment = .center
+        addSubview(windLabel)
+        
+        addSubview(iconImageView)
+        
+        addSubview(noWeatherLabel)
+        
+        updateView()
+    }
+    
+    private func updateView() {
+        if let weatherCondition = weatherCondition {
+            noWeatherLabel.isHidden = true
+            locationLabel.text = weatherCondition.location
+            weatherDescriptionLabel.text = weatherCondition.condition
+            temperatureLabel.text = weatherCondition.temperature
+            windLabel.text = weatherCondition.wind
+            iconImageView.image = UIImage(named: weatherCondition.icon ?? "")
+        } else {
+            noWeatherLabel.isHidden = false
+            noWeatherLabel.text = "Could not get weather data at this time.\nTry again later."
+            noWeatherLabel.numberOfLines = 0
+            noWeatherLabel.textAlignment = .center
+        }
     }
     
     private func setupContraints() {
+        locationLabel.snp.makeConstraints { make in
+            make.leading.top.trailing.equalToSuperview()
+            make.centerX.equalToSuperview()
+        }
         
+        weatherDescriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(locationLabel.snp.bottom).offset(16)
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        temperatureLabel.snp.makeConstraints { make in
+            make.top.equalTo(weatherDescriptionLabel.snp.bottom)
+            make.leading.equalToSuperview().offset(16)
+        }
+        
+        windLabel.snp.makeConstraints { make in
+            make.top.equalTo(weatherDescriptionLabel.snp.bottom)
+            make.trailing.equalToSuperview().inset(16)
+        }
+        
+        noWeatherLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }

@@ -34,6 +34,8 @@ final class WeatherDisplayViewController: UIViewController {
         
         setupView()
         setupConstraints()
+        
+        presenter.getWeatherCondition()
     }
     
     private func setupView() {
@@ -54,5 +56,13 @@ final class WeatherDisplayViewController: UIViewController {
             make.top.equalTo(updateDisplayView.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
+    }
+}
+
+
+extension WeatherDisplayViewController: WeatherDisplayPresenterToViewProtocol {
+    
+    func update(with weatherCondition: WeatherCondition) {
+        weatherDisplayView.weatherCondition = weatherCondition
     }
 }
