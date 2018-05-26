@@ -24,7 +24,7 @@ extension WeatherDisplayPresenter: WeatherDisplayViewToPresenterProtocol {
     }
     
     func getWeatherCondition() {
-        api?.getCurrentWeather(for: "Moscow", completionHandler: { (success, weatherCondition) in
+        api?.getCurrentWeather(for: "LA", completionHandler: { (success, weatherCondition) in
             self.view?.update(with: success ? weatherCondition : nil)
         })
     }

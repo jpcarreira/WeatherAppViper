@@ -95,6 +95,7 @@ extension Weather: WeatherConditionEntityProtocol {
     }
     
     var icon: String? {
-        return String(String(currentConditionIconUrl.suffix(7)).prefix(3))
+        let icon = String(String(currentConditionIconUrl.suffix(7)).prefix(3))
+        return isDay ? icon : "\(icon)n"
     }
 }
