@@ -23,6 +23,10 @@ final class WeatherDisplayViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         navigationItem.title = presenter.navigationBarTitle
+        
+        let barButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .refresh, target: self, action: #selector(refreshWeather))
+        self.navigationItem.leftBarButtonItem = barButtonItem
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -57,12 +61,16 @@ final class WeatherDisplayViewController: UIViewController {
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
+    
+    @objc private func refreshWeather() {
+        presenter.getWeatherCondition()
+    }
 }
 
 
 extension WeatherDisplayViewController: WeatherDisplayPresenterToViewProtocol {
     
-    func update(with weatherCondition: WeatherCondition) {
+    func update(with weatherCondition: WeatherCondition?) {
         weatherDisplayView.weatherCondition = weatherCondition
     }
 }

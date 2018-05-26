@@ -67,18 +67,23 @@ final class WeatherDisplayView: UIView {
     
     private func updateView() {
         if let weatherCondition = weatherCondition {
-            noWeatherLabel.isHidden = true
             locationLabel.text = weatherCondition.location
             weatherDescriptionLabel.text = weatherCondition.condition
             temperatureLabel.text = weatherCondition.temperature
             windLabel.text = weatherCondition.wind
             iconImageView.image = UIImage(named: weatherCondition.icon ?? "")
         } else {
-            noWeatherLabel.isHidden = false
             noWeatherLabel.text = "Could not get weather data at this time.\nTry again later."
             noWeatherLabel.numberOfLines = 0
             noWeatherLabel.textAlignment = .center
         }
+        
+        noWeatherLabel.isHidden = weatherCondition != nil
+        locationLabel.isHidden = weatherCondition == nil
+        weatherDescriptionLabel.isHidden = weatherCondition == nil
+        temperatureLabel.isHidden = weatherCondition == nil
+        windLabel.isHidden = weatherCondition == nil
+        iconImageView.isHidden = weatherCondition == nil
     }
     
     private func setupContraints() {

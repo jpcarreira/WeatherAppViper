@@ -19,5 +19,5 @@ protocol WeatherDisplayViewToPresenterProtocol {
 
 protocol WeatherDisplayPresenterToViewProtocol: class {
     
-    func update(with weatherCondition: WeatherCondition)
+    func update(with weatherCondition: WeatherCondition?)
 }
