@@ -15,7 +15,6 @@
 		622A63A220B8A4E5001BAFE5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622A63A120B8A4E5001BAFE5 /* Alamofire.framework */; };
 		622A63A420B8A505001BAFE5 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622A63A320B8A505001BAFE5 /* Result.framework */; };
 		629E94CF20B8AB0C00F80518 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E94CE20B8AB0C00F80518 /* Router.swift */; };
-		629E94D320B8AB5C00F80518 /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E94D220B8AB5C00F80518 /* APIProtocol.swift */; };
 		629E94D520B8AC4700F80518 /* WeatherDisplayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E94D420B8AC4700F80518 /* WeatherDisplayPresenter.swift */; };
 		629E94D720B8ACCE00F80518 /* WeatherDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E94D620B8ACCE00F80518 /* WeatherDisplayViewController.swift */; };
 		629E94D920B8ACFD00F80518 /* WeatherDisplayProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E94D820B8ACFD00F80518 /* WeatherDisplayProtocols.swift */; };
@@ -38,7 +37,6 @@
 		622A63A120B8A4E5001BAFE5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		622A63A320B8A505001BAFE5 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		629E94CE20B8AB0C00F80518 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		629E94D220B8AB5C00F80518 /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		629E94D420B8AC4700F80518 /* WeatherDisplayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDisplayPresenter.swift; sourceTree = "<group>"; };
 		629E94D620B8ACCE00F80518 /* WeatherDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDisplayViewController.swift; sourceTree = "<group>"; };
 		629E94D820B8ACFD00F80518 /* WeatherDisplayProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDisplayProtocols.swift; sourceTree = "<group>"; };
@@ -87,6 +85,7 @@
 			children = (
 				622A63A520B8A95B001BAFE5 /* App */,
 				622A63A620B8A96E001BAFE5 /* Stories */,
+				62FE82F720BB07050000B673 /* API */,
 				629E94D020B8AB3C00F80518 /* Services */,
 				629E94CD20B8AAED00F80518 /* Resources */,
 			);
@@ -162,13 +161,19 @@
 		629E94D120B8AB4400F80518 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				62FE82ED20B9E9930000B673 /* Weather.swift */,
-				629E94D220B8AB5C00F80518 /* APIProtocol.swift */,
-				629E94DA20B8B10800F80518 /* API.swift */,
 				62FE82EF20B9F4BC0000B673 /* HTTPClient.swift */,
-				62FE82F520BB04070000B673 /* mock.json */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		62FE82F720BB07050000B673 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				62FE82ED20B9E9930000B673 /* Weather.swift */,
+				629E94DA20B8B10800F80518 /* API.swift */,
+				62FE82F520BB04070000B673 /* mock.json */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,7 +270,6 @@
 			files = (
 				629E94CF20B8AB0C00F80518 /* Router.swift in Sources */,
 				629E94D920B8ACFD00F80518 /* WeatherDisplayProtocols.swift in Sources */,
-				629E94D320B8AB5C00F80518 /* APIProtocol.swift in Sources */,
 				629E94D520B8AC4700F80518 /* WeatherDisplayPresenter.swift in Sources */,
 				62FE82EE20B9E9930000B673 /* Weather.swift in Sources */,
 				622A637220B89974001BAFE5 /* AppDelegate.swift in Sources */,

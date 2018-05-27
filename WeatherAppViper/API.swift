@@ -9,6 +9,9 @@
 import Foundation
 
 
+protocol ApiProtocol: WeatherDisplayAPIProtocol { }
+
+
 final class API {
     
     private static let baseUrl = "https://api.apixu.com/v1/current.json"
