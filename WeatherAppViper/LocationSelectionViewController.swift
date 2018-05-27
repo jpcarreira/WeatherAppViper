@@ -82,6 +82,3 @@ extension LocationSelectionViewController: UITableViewDelegate {
         presenter.didSelectRow(at: indexPath.row)
     }
 }
-
-
-extension LocationSelectionViewController: LocationSelectionPresenterToViewProtocol { }

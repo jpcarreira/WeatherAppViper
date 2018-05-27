@@ -11,8 +11,6 @@ final class LocationSelectionPresenter {
     
     var router: LocationSelectionRouterProtocol?
     
-    weak var view: LocationSelectionPresenterToViewProtocol?
-    
     weak var delegate: LocationSelectionDelegate?
    
     init(router: LocationSelectionRouterProtocol) {

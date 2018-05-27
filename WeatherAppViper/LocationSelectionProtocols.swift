@@ -25,9 +25,6 @@ protocol LocationSelectionViewToPresenterProtocol: class {
 }
 
 
-protocol LocationSelectionPresenterToViewProtocol: class { }
-
-
 protocol LocationSelectionDelegate: class  {
     
     func didSelect(_ location: String)

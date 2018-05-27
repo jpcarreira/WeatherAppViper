@@ -49,7 +49,6 @@ extension Router: WeatherDisplayRouterProtocol {
     func goToLocationSelection(sender: AnyObject) {
         let presenter = LocationSelectionPresenter(router: self)
         let viewController = LocationSelectionViewController(presenter: presenter)
-        presenter.view = viewController
         
         if let weatherDisplayPresenter = sender as? WeatherDisplayPresenter {
             presenter.delegate = weatherDisplayPresenter
