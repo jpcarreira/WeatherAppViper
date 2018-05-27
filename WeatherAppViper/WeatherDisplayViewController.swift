@@ -41,11 +41,13 @@ final class WeatherDisplayViewController: UIViewController {
         navigationItem.title = presenter.navigationBarTitle
         
         let leftBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .refresh, target: self, action: #selector(pressedRefreshBarButton))
+            barButtonSystemItem: .refresh, target: self,
+            action: #selector(pressedRefreshBarButton))
         navigationItem.leftBarButtonItem = leftBarButtonItem
         
         let rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .search, target: self, action: #selector(pressedFindLocationsBarButton))
+            barButtonSystemItem: .search, target: self,
+            action: #selector(pressedFindLocationsBarButton))
         navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
@@ -103,6 +105,6 @@ extension WeatherDisplayViewController: WeatherDisplayPresenterToViewProtocol {
         alertController.addAction(mockAPIAction)
         alertController.addAction(apiAction)
         
-        present(alertController, animated: true, completion:nil)
+        navigationController?.present(alertController, animated: true, completion: nil)
     }
 }
