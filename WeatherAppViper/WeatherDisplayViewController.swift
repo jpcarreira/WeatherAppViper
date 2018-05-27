@@ -89,7 +89,9 @@ extension WeatherDisplayViewController: WeatherDisplayPresenterToViewProtocol {
             self.presenter.chooseAPI(useMock: true)
         }
         
-        let apiAction = UIAlertAction(title: "Weather API", style: .default, handler: nil)
+        let apiAction = UIAlertAction(title: "Weather API", style: .default) { action in
+            self.presenter.chooseAPI(useMock: false)
+        }
 
         alertController.addAction(mockAPIAction)
         alertController.addAction(apiAction)

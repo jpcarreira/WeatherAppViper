@@ -50,5 +50,6 @@ extension WeatherDisplayPresenter: WeatherDisplayViewToPresenterProtocol {
     
     func chooseAPI(useMock: Bool = false) {
         router?.changeAPI(useMock: useMock)
+        requestForWeatherCondition()
     }
 }
