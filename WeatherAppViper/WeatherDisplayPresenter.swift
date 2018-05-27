@@ -49,11 +49,19 @@ extension WeatherDisplayPresenter: WeatherDisplayViewToPresenterProtocol {
     }
     
     func getLocations() {
-        router?.goToLocationSelection()
+        router?.goToLocationSelection(sender: self)
     }
     
     func chooseAPI(useMock: Bool = false) {
         router?.changeAPI(useMock: useMock)
         requestForWeatherCondition()
+    }
+}
+
+
+extension WeatherDisplayPresenter: LocationSelectionDelegate {
+    
+    func didSelect(_ location: String) {
+        // TODO:
     }
 }

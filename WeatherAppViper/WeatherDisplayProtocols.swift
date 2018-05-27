@@ -17,7 +17,7 @@ protocol WeatherDisplayRouterProtocol: class {
     
     func changeAPI(useMock: Bool)
     
-    func goToLocationSelection()
+    func goToLocationSelection(sender: AnyObject)
 }
 
 
