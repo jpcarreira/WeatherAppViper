@@ -21,12 +21,6 @@ final class WeatherDisplayViewController: UIViewController {
         self.presenter = presenter
         
         super.init(nibName: nil, bundle: nil)
-        
-        navigationItem.title = presenter.navigationBarTitle
-        
-        let barButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .refresh, target: self, action: #selector(refreshWeather))
-        self.navigationItem.leftBarButtonItem = barButtonItem
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,6 +30,7 @@ final class WeatherDisplayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupNavigationBar()
         setupView()
         setupConstraints()
     }
@@ -44,6 +39,18 @@ final class WeatherDisplayViewController: UIViewController {
         super.viewDidAppear(animated)
         
         presenter.getWeatherCondition()
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.title = presenter.navigationBarTitle
+        
+        let leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .refresh, target: self, action: #selector(pressedRefreshBarButton))
+        navigationItem.leftBarButtonItem = leftBarButtonItem
+        
+        let rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .search, target: self, action: #selector(pressedFindLocationsBarButton))
+        navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
     private func setupView() {
@@ -66,8 +73,12 @@ final class WeatherDisplayViewController: UIViewController {
         }
     }
     
-    @objc private func refreshWeather() {
+    @objc private func pressedRefreshBarButton() {
         presenter.getWeatherCondition()
+    }
+    
+    @objc private func pressedFindLocationsBarButton() {
+        presenter.getLocations()
     }
 }
 

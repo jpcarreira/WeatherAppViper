@@ -45,4 +45,23 @@ extension Router: WeatherDisplayRouterProtocol {
             presenter.api = api
         }
     }
+    
+    func goToLocationSelection() {
+        let presenter = LocationSelectionPresenter(router: self)
+        let viewController = LocationSelectionViewController(presenter: presenter)
+        presenter.view = viewController
+        
+        rootViewController.present(
+            UINavigationController(rootViewController: viewController), animated: true,
+            completion: nil)
+    }
+}
+
+
+extension Router: LocationSelectionRouterProtocol {
+    
+    func closeLocationSelection() {
+        UIApplication.shared.keyWindow?.rootViewController?.presentedViewController?.dismiss(
+            animated: true) 
+    }
 }

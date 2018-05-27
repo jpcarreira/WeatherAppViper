@@ -16,6 +16,8 @@ protocol WeatherDisplayAPIProtocol: class {
 protocol WeatherDisplayRouterProtocol: class {
     
     func changeAPI(useMock: Bool)
+    
+    func goToLocationSelection()
 }
 
 
@@ -35,6 +37,8 @@ protocol WeatherDisplayViewToPresenterProtocol {
     var navigationBarTitle: String { get }
     
     func getWeatherCondition()
+    
+    func getLocations()
     
     func chooseAPI(useMock: Bool)
 }
