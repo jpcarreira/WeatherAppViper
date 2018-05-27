@@ -73,6 +73,7 @@ enum HTTPErrorCode: Int {
     case unauthorized = 401
     case notFound = 404
     case internalServerError = 500
+    case badGateway = 502
     case other = 0
     case noResponse = -1
 }

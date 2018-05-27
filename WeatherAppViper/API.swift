@@ -40,3 +40,37 @@ extension API: ApiProtocol {
         return URL(string: "\(API.baseUrl)?key=\(API.apiKey)&q=\(location)")!
     }
 }
+
+
+final class MockAPI: ApiProtocol {
+    
+    func getCurrentWeather(
+            for location: String,
+            completionHandler: @escaping (Bool, WeatherConditionEntityProtocol?) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+            MockAPI.loadJsonDataFromFile("mock", completion: { json in
+                if let json = json {
+                    do {
+                        let weather = try JSONDecoder().decode(Weather.self, from: json)
+                        completionHandler(true, weather)
+                    }
+                    catch let error as NSError {
+                        print(error)
+                    }
+                }
+            })
+        }
+    }
+    
+    private static func loadJsonDataFromFile(_ withPath: String, completion: (Data?) -> Void) {
+        if let fileUrl = Bundle.main.url(forResource: withPath, withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: fileUrl, options: [])
+                completion(data as Data)
+            } catch (let error) {
+                print(error.localizedDescription)
+                completion(nil)
+            }
+        }
+    }
+}

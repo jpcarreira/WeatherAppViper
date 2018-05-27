@@ -38,6 +38,10 @@ final class WeatherDisplayViewController: UIViewController {
         
         setupView()
         setupConstraints()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         presenter.getWeatherCondition()
     }
@@ -75,5 +79,21 @@ extension WeatherDisplayViewController: WeatherDisplayPresenterToViewProtocol {
             self.updateDisplayView.lastUpdateDate = weatherCondition?.lastUpdate
             self.weatherDisplayView.weatherCondition = weatherCondition
         }
+    }
+    
+    func promptForAPISwitch() {
+        let alertController = UIAlertController(
+            title: nil, message: "Choose API", preferredStyle: .actionSheet)
+        
+        let mockAPIAction = UIAlertAction(title: "Mock API", style: .default) { action in
+            self.presenter.chooseAPI(useMock: true)
+        }
+        
+        let apiAction = UIAlertAction(title: "Weather API", style: .default, handler: nil)
+
+        alertController.addAction(mockAPIAction)
+        alertController.addAction(apiAction)
+        
+        present(alertController, animated: true, completion:nil)
     }
 }

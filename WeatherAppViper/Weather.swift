@@ -54,7 +54,6 @@ struct Weather: Decodable {
         let currentCondition = try currentData.nestedContainer(
             keyedBy: ConditionCodingKeys.self, forKey: .condition)
         
-        
         locationName = try locationData.decode(String.self, forKey: .name)
         locationCountry = try locationData.decode(String.self, forKey: .country)
         currentLastUpdated = try currentData.decode(String.self, forKey: .lastUpdated)

@@ -13,7 +13,10 @@ protocol WeatherDisplayAPIProtocol: class {
 }
 
 
-protocol WeatherDisplayRouterProtocol: class { }
+protocol WeatherDisplayRouterProtocol: class {
+    
+    func changeAPI(useMock: Bool)
+}
 
 
 protocol WeatherConditionEntityProtocol {
@@ -32,10 +35,14 @@ protocol WeatherDisplayViewToPresenterProtocol {
     var navigationBarTitle: String { get }
     
     func getWeatherCondition()
+    
+    func chooseAPI(useMock: Bool)
 }
 
 
 protocol WeatherDisplayPresenterToViewProtocol: class {
     
     func update(with weatherCondition: WeatherConditionEntityProtocol?)
+    
+    func promptForAPISwitch()
 }

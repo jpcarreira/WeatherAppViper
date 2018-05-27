@@ -19,7 +19,13 @@ final class Router {
     
     init(api: ApiProtocol) {
         self.api = api
-        presenter = WeatherDisplayPresenter()
+        
+        #if DEBUG
+            presenter = WeatherDisplayPresenter(canSwitchToMockAPI: true)
+        #else
+            presenter = WeatherDisplayPresenter()
+        #endif
+        
         let viewController = WeatherDisplayViewController(presenter: presenter)
         rootViewController =
             UINavigationController(
@@ -31,4 +37,12 @@ final class Router {
 }
 
 
-extension Router: WeatherDisplayRouterProtocol { }
+extension Router: WeatherDisplayRouterProtocol {
+    
+    func changeAPI(useMock: Bool) {
+        if useMock {
+            api = MockAPI()
+            presenter.api = api
+        }
+    }
+}

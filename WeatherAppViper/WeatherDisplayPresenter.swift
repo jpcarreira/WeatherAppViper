@@ -9,11 +9,28 @@
 
 final class WeatherDisplayPresenter {
     
-    weak var router: WeatherDisplayRouterProtocol?
+    var router: WeatherDisplayRouterProtocol?
     
     var api: WeatherDisplayAPIProtocol?
     
     weak var view: WeatherDisplayPresenterToViewProtocol?
+    
+    private var mockAPIPrompt: (canSwitch: Bool, alreadyPrompted: Bool)
+    
+    init(canSwitchToMockAPI: Bool = false) {
+        self.mockAPIPrompt = (canSwitchToMockAPI, false)
+    }
+    
+    private func requestForWeatherCondition() {
+        api?.getCurrentWeather(for: "LA", completionHandler: { (success, weatherCondition) in
+            self.view?.update(with: success ? weatherCondition : nil)
+        })
+    }
+    
+    private func promptForAPISwitch() {
+        mockAPIPrompt.alreadyPrompted = true
+        view?.promptForAPISwitch()
+    }
 }
 
 
@@ -24,8 +41,14 @@ extension WeatherDisplayPresenter: WeatherDisplayViewToPresenterProtocol {
     }
     
     func getWeatherCondition() {
-        api?.getCurrentWeather(for: "LA", completionHandler: { (success, weatherCondition) in
-            self.view?.update(with: success ? weatherCondition : nil)
-        })
+        if mockAPIPrompt.canSwitch && !mockAPIPrompt.alreadyPrompted {
+            promptForAPISwitch()
+        } else {
+            requestForWeatherCondition()
+        }
+    }
+    
+    func chooseAPI(useMock: Bool = false) {
+        router?.changeAPI(useMock: useMock)
     }
 }

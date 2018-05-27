@@ -1,0 +1,38 @@
+{
+    "location": {
+        "name": "Lisboa",
+        "region": "Lisboa",
+        "country": "Portugal",
+        "lat": 38.72,
+        "lon": -9.13,
+        "tz_id": "Europe/Lisbon",
+        "localtime_epoch": 1527434402,
+        "localtime": "2018-05-27 16:20"
+    },
+    "current": {
+        "last_updated_epoch": 1527434110,
+        "last_updated": "2018-05-27 16:15",
+        "temp_c": 20,
+        "temp_f": 68,
+        "is_day": 1,
+        "condition": {
+            "text": "Partly cloudy",
+            "icon": "//cdn.apixu.com/weather/64x64/day/116.png",
+            "code": 1003
+        },
+        "wind_mph": 12.5,
+        "wind_kph": 20.2,
+        "wind_degree": 310,
+        "wind_dir": "NW",
+        "pressure_mb": 1016,
+        "pressure_in": 30.5,
+        "precip_mm": 0,
+        "precip_in": 0,
+        "humidity": 64,
+        "cloud": 50,
+        "feelslike_c": 20,
+        "feelslike_f": 68,
+        "vis_km": 10,
+        "vis_miles": 6
+    }
+}
