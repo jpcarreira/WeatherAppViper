@@ -33,10 +33,6 @@ final class WeatherDisplayViewController: UIViewController {
         setupNavigationBar()
         setupView()
         setupConstraints()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
         presenter.getWeatherCondition()
     }

@@ -21,8 +21,8 @@ final class WeatherDisplayPresenter {
         self.mockAPIPrompt = (canSwitchToMockAPI, false)
     }
     
-    private func requestForWeatherCondition() {
-        api?.getCurrentWeather(for: "LA", completionHandler: { (success, weatherCondition) in
+    private func requestForWeatherCondition(for location: String = "Faro") {
+        api?.getCurrentWeather(for: location, completionHandler: { (success, weatherCondition) in
             self.view?.update(with: success ? weatherCondition : nil)
         })
     }
@@ -62,6 +62,6 @@ extension WeatherDisplayPresenter: WeatherDisplayViewToPresenterProtocol {
 extension WeatherDisplayPresenter: LocationSelectionDelegate {
     
     func didSelect(_ location: String) {
-        // TODO:
+        requestForWeatherCondition(for: location)
     }
 }
