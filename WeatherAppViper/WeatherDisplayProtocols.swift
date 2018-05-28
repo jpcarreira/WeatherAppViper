@@ -22,12 +22,19 @@ protocol WeatherDisplayRouterProtocol: class {
 
 
 protocol WeatherConditionEntityProtocol {
+    
     var location: String { get }
+    
     var lastUpdate: String { get }
+    
     var isDay: Bool { get }
+    
     var condition: String { get }
+    
     var wind: String { get }
+    
     var temperature: String { get }
+    
     var icon: String? { get }
 }
 
@@ -35,6 +42,8 @@ protocol WeatherConditionEntityProtocol {
 protocol WeatherDisplayViewToPresenterProtocol {
     
     var navigationBarTitle: String { get }
+    
+    var backgroundImageUrl: String { get }
     
     func getWeatherCondition()
     
@@ -47,6 +56,8 @@ protocol WeatherDisplayViewToPresenterProtocol {
 protocol WeatherDisplayPresenterToViewProtocol: class {
     
     func update(with weatherCondition: WeatherConditionEntityProtocol?)
+    
+    func update(backgroundImageFor location: String)
     
     func promptForAPISwitch()
 }

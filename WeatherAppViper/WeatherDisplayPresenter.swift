@@ -15,7 +15,11 @@ final class WeatherDisplayPresenter {
     
     weak var view: WeatherDisplayPresenterToViewProtocol?
     
-    private var location: String = "Stockholm"
+    private var location: String = "Stockholm" {
+        didSet {
+            view?.update(backgroundImageFor: location)
+        }
+    }
     
     private var mockAPIPrompt: (canSwitch: Bool, alreadyPrompted: Bool)
     
@@ -37,9 +41,13 @@ final class WeatherDisplayPresenter {
 
 
 extension WeatherDisplayPresenter: WeatherDisplayViewToPresenterProtocol {
-
+    
     var navigationBarTitle: String {
         return "Weather App"
+    }
+    
+    var backgroundImageUrl: String {
+        return location
     }
     
     func getWeatherCondition() {

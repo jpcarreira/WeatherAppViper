@@ -24,6 +24,7 @@
 		62FE82F920BB4B410000B673 /* LocationSelectionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FE82F820BB4B410000B673 /* LocationSelectionProtocols.swift */; };
 		62FE82FB20BB4B730000B673 /* LocationSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FE82FA20BB4B730000B673 /* LocationSelectionPresenter.swift */; };
 		62FE82FD20BB4B860000B673 /* LocationSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FE82FC20BB4B860000B673 /* LocationSelectionViewController.swift */; };
+		62FE830020BC9D220000B673 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FE82FF20BC9D220000B673 /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		62FE82F820BB4B410000B673 /* LocationSelectionProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectionProtocols.swift; sourceTree = "<group>"; };
 		62FE82FA20BB4B730000B673 /* LocationSelectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectionPresenter.swift; sourceTree = "<group>"; };
 		62FE82FC20BB4B860000B673 /* LocationSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectionViewController.swift; sourceTree = "<group>"; };
+		62FE82FF20BC9D220000B673 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		622A637020B89974001BAFE5 /* WeatherAppViper */ = {
 			isa = PBXGroup;
 			children = (
+				62FE82FE20BC9D0F0000B673 /* Utils */,
 				622A63A520B8A95B001BAFE5 /* App */,
 				622A63A620B8A96E001BAFE5 /* Stories */,
 				62FE82F720BB07050000B673 /* API */,
@@ -179,6 +182,14 @@
 			name = API;
 			sourceTree = "<group>";
 		};
+		62FE82FE20BC9D0F0000B673 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				62FE82FF20BC9D220000B673 /* UIImage+Extension.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -269,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				629E94CF20B8AB0C00F80518 /* Router.swift in Sources */,
+				62FE830020BC9D220000B673 /* UIImage+Extension.swift in Sources */,
 				62FE82F920BB4B410000B673 /* LocationSelectionProtocols.swift in Sources */,
 				629E94D920B8ACFD00F80518 /* WeatherDisplayProtocols.swift in Sources */,
 				629E94D520B8AC4700F80518 /* WeatherDisplayPresenter.swift in Sources */,

@@ -54,19 +54,8 @@ final class WeatherDisplayViewController: UIViewController {
     }
     
     private func setupView() {
-        // TODO: refactor
-        if let image = UIImage(named: "Rome") {
-            backgroundImageView = UIImageView(frame: .zero)
-            backgroundImageView.image = image
-            backgroundImageView.contentMode = .scaleAspectFill
-            view.addSubview(backgroundImageView)
-
-            let blurEffect = UIBlurEffect(style: .light)
-            let blurEffectView = UIVisualEffectView(effect: blurEffect)
-            blurEffectView.alpha = 0.8
-            blurEffectView.frame = backgroundImageView.bounds
-            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            backgroundImageView.addSubview(blurEffectView)
+        if let image = UIImage(named: presenter.backgroundImageUrl) {
+            view.addSubview(UIImage.blur(image, on: &backgroundImageView))
         }
         
         updateDisplayView.backgroundColor = .clear
@@ -75,7 +64,7 @@ final class WeatherDisplayViewController: UIViewController {
         weatherDisplayView.backgroundColor = .clear
         view.addSubview(weatherDisplayView)
     }
-    
+
     private func setupConstraints() {
         backgroundImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -104,12 +93,16 @@ final class WeatherDisplayViewController: UIViewController {
 
 
 extension WeatherDisplayViewController: WeatherDisplayPresenterToViewProtocol {
-    
+
     func update(with weatherCondition: WeatherConditionEntityProtocol?) {
         DispatchQueue.main.async {
             self.updateDisplayView.lastUpdateDate = weatherCondition?.lastUpdate
             self.weatherDisplayView.weatherCondition = weatherCondition
         }
+    }
+    
+    func update(backgroundImageFor location: String) {
+        backgroundImageView.image = UIImage(named: location)
     }
     
     func promptForAPISwitch() {
