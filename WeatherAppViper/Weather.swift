@@ -90,7 +90,7 @@ extension Weather: WeatherConditionEntityProtocol {
     }
     
     var temperature: String {
-        return "\(currentTemperature) ºC"
+        return "\(currentTemperature) º"
     }
     
     var icon: String? {

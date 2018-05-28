@@ -37,6 +37,7 @@ final class UpdateDisplayView: UIView {
         setupInfoLabel()
         infoLabel.numberOfLines = 0
         infoLabel.textAlignment = .center
+        infoLabel.textColor = .white
         addSubview(infoLabel)
     }
     

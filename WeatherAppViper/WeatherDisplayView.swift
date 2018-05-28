@@ -42,24 +42,34 @@ final class WeatherDisplayView: UIView {
     }
     
     private func setupView() {
-        locationLabel.numberOfLines = 0
-        locationLabel.textAlignment = .center
-        addSubview(locationLabel)
+        addSubview(iconImageView)
         
         weatherDescriptionLabel.numberOfLines = 0
-        weatherDescriptionLabel.textAlignment = .center
+        weatherDescriptionLabel.textAlignment = .left
+        weatherDescriptionLabel.textColor = .white
         addSubview(weatherDescriptionLabel)
-        
-        addSubview(iconImageView)
         
         temperatureLabel.numberOfLines = 0
         temperatureLabel.textAlignment = .center
+        temperatureLabel.textColor = .white
+        temperatureLabel.font = temperatureLabel.font.withSize(70)
         addSubview(temperatureLabel)
         
         windLabel.numberOfLines = 0
-        windLabel.textAlignment = .center
+        windLabel.textAlignment = .left
+        windLabel.textColor = .white
         addSubview(windLabel)
         
+        locationLabel.numberOfLines = 0
+        locationLabel.textAlignment = .center
+        locationLabel.textColor = .white
+        locationLabel.font = locationLabel.font.withSize(30)
+        addSubview(locationLabel)
+        
+        noWeatherLabel.numberOfLines = 0
+        noWeatherLabel.textAlignment = .center
+        noWeatherLabel.textColor = .white
+        noWeatherLabel.font = noWeatherLabel.font.withSize(12)
         addSubview(noWeatherLabel)
         
         updateView()
@@ -68,7 +78,6 @@ final class WeatherDisplayView: UIView {
     private func updateView() {
         if let weatherCondition = weatherCondition {
             locationLabel.text = weatherCondition.location
-            backgroundColor = weatherCondition.isDay ? .cyan : .gray
             weatherDescriptionLabel.text = weatherCondition.condition
             temperatureLabel.text = weatherCondition.temperature
             windLabel.text = weatherCondition.wind
@@ -88,30 +97,30 @@ final class WeatherDisplayView: UIView {
     }
     
     private func setupContraints() {
-        locationLabel.snp.makeConstraints { make in
-            make.leading.top.trailing.equalToSuperview()
-            make.centerX.equalToSuperview()
+        iconImageView.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview()
+            make.width.height.equalTo(60)
         }
         
         weatherDescriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(locationLabel.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview()
-        }
-        
-        iconImageView.snp.makeConstraints { make in
-            make.top.equalTo(weatherDescriptionLabel.snp.bottom).offset(16)
-            make.width.height.equalTo(120)
-            make.centerX.equalToSuperview()
+            make.leading.equalTo(iconImageView.snp.trailing)
+            make.trailing.equalToSuperview()
+            make.centerY.equalTo(iconImageView.snp.centerY)
         }
         
         temperatureLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(iconImageView.snp.centerY)
-            make.trailing.equalTo(iconImageView.snp.leading)
+            make.top.equalTo(iconImageView.snp.bottom).offset(6)
+            make.leadingMargin.equalTo(iconImageView.snp.centerX)
         }
         
         windLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(iconImageView.snp.centerY)
-            make.leading.equalTo(iconImageView.snp.trailing)
+            make.top.equalTo(temperatureLabel.snp.bottom).offset(6)
+            make.leadingMargin.equalTo(iconImageView.snp.centerX)
+        }
+        
+        locationLabel.snp.makeConstraints { make in
+            make.top.equalTo(windLabel.snp.bottom).offset(18)
+            make.centerX.equalToSuperview()
         }
         
         noWeatherLabel.snp.makeConstraints { make in

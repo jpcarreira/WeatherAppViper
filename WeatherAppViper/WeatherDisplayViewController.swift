@@ -13,6 +13,8 @@ final class WeatherDisplayViewController: UIViewController {
     
     private let presenter: WeatherDisplayViewToPresenterProtocol
     
+    private var backgroundImageView = UIImageView()
+    
     private let updateDisplayView = UpdateDisplayView()
     
     private let weatherDisplayView = WeatherDisplayView()
@@ -52,13 +54,33 @@ final class WeatherDisplayViewController: UIViewController {
     }
     
     private func setupView() {
-        view.backgroundColor = .white
+        // TODO: refactor
+        if let image = UIImage(named: "Rome") {
+            backgroundImageView = UIImageView(frame: .zero)
+            backgroundImageView.image = image
+            backgroundImageView.contentMode = .scaleAspectFill
+            view.addSubview(backgroundImageView)
+
+            let blurEffect = UIBlurEffect(style: .light)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.alpha = 0.8
+            blurEffectView.frame = backgroundImageView.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            backgroundImageView.addSubview(blurEffectView)
+        }
         
+        updateDisplayView.backgroundColor = .clear
         view.addSubview(updateDisplayView)
+        
+        weatherDisplayView.backgroundColor = .clear
         view.addSubview(weatherDisplayView)
     }
     
     private func setupConstraints() {
+        backgroundImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         updateDisplayView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview()
