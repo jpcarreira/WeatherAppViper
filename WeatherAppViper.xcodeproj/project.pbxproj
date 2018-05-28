@@ -10,10 +10,7 @@
 		622A637220B89974001BAFE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A637120B89974001BAFE5 /* AppDelegate.swift */; };
 		622A637920B89977001BAFE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 622A637820B89977001BAFE5 /* Assets.xcassets */; };
 		622A637C20B89977001BAFE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 622A637A20B89977001BAFE5 /* LaunchScreen.storyboard */; };
-		622A639E20B8A29D001BAFE5 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622A639C20B8A29D001BAFE5 /* Moya.framework */; };
 		622A639F20B8A29D001BAFE5 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622A639D20B8A29D001BAFE5 /* SnapKit.framework */; };
-		622A63A220B8A4E5001BAFE5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622A63A120B8A4E5001BAFE5 /* Alamofire.framework */; };
-		622A63A420B8A505001BAFE5 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622A63A320B8A505001BAFE5 /* Result.framework */; };
 		629E94CF20B8AB0C00F80518 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E94CE20B8AB0C00F80518 /* Router.swift */; };
 		629E94D520B8AC4700F80518 /* WeatherDisplayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E94D420B8AC4700F80518 /* WeatherDisplayPresenter.swift */; };
 		629E94D720B8ACCE00F80518 /* WeatherDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E94D620B8ACCE00F80518 /* WeatherDisplayViewController.swift */; };
@@ -59,9 +56,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				622A63A420B8A505001BAFE5 /* Result.framework in Frameworks */,
-				622A63A220B8A4E5001BAFE5 /* Alamofire.framework in Frameworks */,
-				622A639E20B8A29D001BAFE5 /* Moya.framework in Frameworks */,
 				622A639F20B8A29D001BAFE5 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,10 +253,7 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Moya.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 			);
 			outputPaths = (
 			);
